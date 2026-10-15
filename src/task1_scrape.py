@@ -5,7 +5,10 @@ from bs4 import BeautifulSoup
 try:
     from .utils import save_to_json
 except ImportError:
-    from utils import save_to_json
+    try:
+        from src.utils import save_to_json
+    except ImportError:
+        from utils import save_to_json
 
 
 def fetch_wikipedia_page(url: str) -> str:
